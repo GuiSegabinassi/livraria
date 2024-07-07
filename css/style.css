@@ -1,0 +1,47 @@
+body {
+    background-color: #1e1e1e; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro para contraste */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #00FFAB; /* Verde Aurora */
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444444; /* Linhas de separação */
+}
+
+th {
+    background-color: #009688; /* Verde Escuro Aurora */
+    color: #ffffff; /* Texto branco */
+}
+
+tr:nth-child(even) {
+    background-color: #2e2e2e; /* Linhas pares em cinza escuro */
+}
+
+tr:hover {
+    background-color: #333333; /* Cor de fundo ao passar o mouse */
+}
+
+a {
+    color: #00FFFF; /* Ciano Aurora */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
