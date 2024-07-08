@@ -1,7 +1,7 @@
 package models
 
-import  (
-	
+import (
+	"loja/db"
 )
 
 type Livros struct {
@@ -14,40 +14,29 @@ type Livros struct {
 
 func BuscaLivros() []Livros {
 
-	db := Db_conect()
+	db := db.Db_conect()
+
+	// Lembre-se de fechar a conexão com o banco de dados
+	defer db.Close()
 
 	selectAllLivros, err := db.Query("select * from livros")
-
 	if err != nil {
 		panic(err.Error())
 	}
+	defer selectAllLivros.Close()
 
-	p := Livros{}
 	livros := []Livros{}
 
 	for selectAllLivros.Next() {
-		var id int
-		var nome string
-		var descricao string
-		var preco float64
-		var genero string
+		var p Livros
 
-		err = selectAllLivros.Scan(&id, &nome, &descricao, &preco, &genero)
-
+		err = selectAllLivros.Scan(&p.Id, &p.Nome, &p.Descricao, &p.Preco, &p.Genero)
 		if err != nil {
 			panic(err.Error())
 		}
 
-		p.Nome = nome
-		p.Descricao = descricao
-		p.Preco = preco
-		p.Genero = genero
-
 		livros = append(livros, p)
-
 	}
 
-	defer.Close()
 	return livros
-
 }
